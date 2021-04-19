@@ -8,7 +8,9 @@ okay_string="kubectl: OK"
 
 if [ "$check_output" == "$okay_string" ]; then
   echo "OKAY: downloaded file matches the expected checksum"
-  
+  mkdir -p ~/.local/bin/kubectl
+  mv ./kubectl ~/.local/bin/kubectl
+  export PATH=$PATH:~/.local/bin/kubectl
 else
   echo "ERROR: checksum does not match"
   exit 1
